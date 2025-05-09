@@ -1,0 +1,30 @@
+"/Users/sgtmac/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.18.4/darwin/webview_flutter_wkwebview/Sources/webview_flutter_wkwebview/UIDelegateProxyAPIDelegate.swift":
+  const-values: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/UIDelegateProxyAPIDelegate.swiftconstvalues"
+  object: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/UIDelegateProxyAPIDelegate.o"
+  swift-dependencies: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/UIDelegateProxyAPIDelegate.swiftdeps"
+  diagnostics: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/UIDelegateProxyAPIDelegate.dia"
+  dependencies: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/UIDelegateProxyAPIDelegate.d"
+"/Users/sgtmac/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.18.4/darwin/webview_flutter_wkwebview/Sources/webview_flutter_wkwebview/URLAuthenticationChallengeProxyAPIDelegate.swift":
+  object: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/URLAuthenticationChallengeProxyAPIDelegate.o"
+  const-values: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/URLAuthenticationChallengeProxyAPIDelegate.swiftconstvalues"
+  swift-dependencies: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/URLAuthenticationChallengeProxyAPIDelegate.swiftdeps"
+  dependencies: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/URLAuthenticationChallengeProxyAPIDelegate.d"
+  diagnostics: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/URLAuthenticationChallengeProxyAPIDelegate.dia"
+"/Users/sgtmac/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.18.4/darwin/webview_flutter_wkwebview/Sources/webview_flutter_wkwebview/URLCredentialProxyAPIDelegate.swift":
+  object: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/URLCredentialProxyAPIDelegate.o"
+  dependencies: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/URLCredentialProxyAPIDelegate.d"
+  diagnostics: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/URLCredentialProxyAPIDelegate.dia"
+  swift-dependencies: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/URLCredentialProxyAPIDelegate.swiftdeps"
+  const-values: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/URLCredentialProxyAPIDelegate.swiftconstvalues"
+"/Users/sgtmac/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.18.4/darwin/webview_flutter_wkwebview/Sources/webview_flutter_wkwebview/UIViewProxyAPIDelegate.swift":
+  const-values: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/UIViewProxyAPIDelegate.swiftconstvalues"
+  dependencies: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/UIViewProxyAPIDelegate.d"
+  object: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/UIViewProxyAPIDelegate.o"
+  swift-dependencies: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/UIViewProxyAPIDelegate.swiftdeps"
+  diagnostics: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/UIViewProxyAPIDelegate.dia"
+"/Users/sgtmac/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.18.4/darwin/webview_flutter_wkwebview/Sources/webview_flutter_wkwebview/StructWrappers.swift":
+  diagnostics: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/StructWrappers.dia"
+  dependencies: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/StructWrappers.d"
+  const-values: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/StructWrappers.swiftconstvalues"
+  object: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/StructWrappers.o"
+  swift-dependencies: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/StructWrappers.swiftdeps"

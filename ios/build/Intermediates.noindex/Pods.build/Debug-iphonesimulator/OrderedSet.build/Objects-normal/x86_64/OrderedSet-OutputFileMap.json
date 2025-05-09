@@ -1,0 +1,18 @@
+{
+  "" : {
+    "diagnostics" : "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/OrderedSet.build/Objects-normal/x86_64/OrderedSet-master.dia",
+    "emit-module-dependencies" : "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/OrderedSet.build/Objects-normal/x86_64/OrderedSet-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/OrderedSet.build/Objects-normal/x86_64/OrderedSet-master-emit-module.dia",
+    "swift-dependencies" : "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/OrderedSet.build/Objects-normal/x86_64/OrderedSet-master.swiftdeps"
+  },
+  "/Users/sgtmac/Downloads/zad_Courses/ios/Pods/OrderedSet/Sources/OrderedSet.swift" : {
+    "const-values" : "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/OrderedSet.build/Objects-normal/x86_64/OrderedSet.swiftconstvalues",
+    "dependencies" : "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/OrderedSet.build/Objects-normal/x86_64/OrderedSet.d",
+    "diagnostics" : "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/OrderedSet.build/Objects-normal/x86_64/OrderedSet.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/OrderedSet.build/Objects-normal/x86_64/OrderedSet.o",
+    "llvm-bc" : "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/OrderedSet.build/Objects-normal/x86_64/OrderedSet.bc",
+    "object" : "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/OrderedSet.build/Objects-normal/x86_64/OrderedSet.o",
+    "swift-dependencies" : "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/OrderedSet.build/Objects-normal/x86_64/OrderedSet.swiftdeps",
+    "swiftmodule" : "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/OrderedSet.build/Objects-normal/x86_64/OrderedSet~partial.swiftmodule"
+  }
+}

@@ -1,0 +1,18 @@
+"/Users/sgtmac/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.18.4/darwin/webview_flutter_wkwebview/Sources/webview_flutter_wkwebview/NavigationDelegateProxyAPIDelegate.swift":
+  swift-dependencies: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/NavigationDelegateProxyAPIDelegate.swiftdeps"
+  dependencies: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/NavigationDelegateProxyAPIDelegate.d"
+  const-values: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/NavigationDelegateProxyAPIDelegate.swiftconstvalues"
+  object: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/NavigationDelegateProxyAPIDelegate.o"
+  diagnostics: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/NavigationDelegateProxyAPIDelegate.dia"
+"/Users/sgtmac/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.18.4/darwin/webview_flutter_wkwebview/Sources/webview_flutter_wkwebview/FlutterAssetManager.swift":
+  const-values: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/FlutterAssetManager.swiftconstvalues"
+  swift-dependencies: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/FlutterAssetManager.swiftdeps"
+  object: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/FlutterAssetManager.o"
+  diagnostics: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/FlutterAssetManager.dia"
+  dependencies: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/FlutterAssetManager.d"
+"/Users/sgtmac/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.18.4/darwin/webview_flutter_wkwebview/Sources/webview_flutter_wkwebview/FlutterViewFactory.swift":
+  const-values: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/FlutterViewFactory.swiftconstvalues"
+  swift-dependencies: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/FlutterViewFactory.swiftdeps"
+  object: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/FlutterViewFactory.o"
+  diagnostics: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/FlutterViewFactory.dia"
+  dependencies: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/FlutterViewFactory.d"

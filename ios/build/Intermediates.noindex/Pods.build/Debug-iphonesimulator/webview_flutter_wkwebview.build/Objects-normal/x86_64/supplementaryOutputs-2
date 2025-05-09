@@ -1,0 +1,30 @@
+"/Users/sgtmac/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.18.4/darwin/webview_flutter_wkwebview/Sources/webview_flutter_wkwebview/FrameInfoProxyAPIDelegate.swift":
+  swift-dependencies: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/FrameInfoProxyAPIDelegate.swiftdeps"
+  dependencies: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/FrameInfoProxyAPIDelegate.d"
+  object: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/FrameInfoProxyAPIDelegate.o"
+  diagnostics: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/FrameInfoProxyAPIDelegate.dia"
+  const-values: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/FrameInfoProxyAPIDelegate.swiftconstvalues"
+"/Users/sgtmac/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.18.4/darwin/webview_flutter_wkwebview/Sources/webview_flutter_wkwebview/HTTPCookieProxyAPIDelegate.swift":
+  dependencies: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/HTTPCookieProxyAPIDelegate.d"
+  swift-dependencies: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/HTTPCookieProxyAPIDelegate.swiftdeps"
+  diagnostics: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/HTTPCookieProxyAPIDelegate.dia"
+  object: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/HTTPCookieProxyAPIDelegate.o"
+  const-values: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/HTTPCookieProxyAPIDelegate.swiftconstvalues"
+"/Users/sgtmac/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.18.4/darwin/webview_flutter_wkwebview/Sources/webview_flutter_wkwebview/NavigationActionProxyAPIDelegate.swift":
+  swift-dependencies: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/NavigationActionProxyAPIDelegate.swiftdeps"
+  diagnostics: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/NavigationActionProxyAPIDelegate.dia"
+  dependencies: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/NavigationActionProxyAPIDelegate.d"
+  const-values: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/NavigationActionProxyAPIDelegate.swiftconstvalues"
+  object: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/NavigationActionProxyAPIDelegate.o"
+"/Users/sgtmac/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.18.4/darwin/webview_flutter_wkwebview/Sources/webview_flutter_wkwebview/HTTPURLResponseProxyAPIDelegate.swift":
+  diagnostics: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/HTTPURLResponseProxyAPIDelegate.dia"
+  dependencies: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/HTTPURLResponseProxyAPIDelegate.d"
+  swift-dependencies: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/HTTPURLResponseProxyAPIDelegate.swiftdeps"
+  const-values: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/HTTPURLResponseProxyAPIDelegate.swiftconstvalues"
+  object: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/HTTPURLResponseProxyAPIDelegate.o"
+"/Users/sgtmac/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.18.4/darwin/webview_flutter_wkwebview/Sources/webview_flutter_wkwebview/HTTPCookieStoreProxyAPIDelegate.swift":
+  swift-dependencies: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/HTTPCookieStoreProxyAPIDelegate.swiftdeps"
+  const-values: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/HTTPCookieStoreProxyAPIDelegate.swiftconstvalues"
+  dependencies: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/HTTPCookieStoreProxyAPIDelegate.d"
+  object: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/HTTPCookieStoreProxyAPIDelegate.o"
+  diagnostics: "/Users/sgtmac/Downloads/zad_Courses/ios/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/webview_flutter_wkwebview.build/Objects-normal/x86_64/HTTPCookieStoreProxyAPIDelegate.dia"
