@@ -1,0 +1,2 @@
+C:/Users/Mohamed Youssef/Downloads/ZAD-Courses-main/ZAD-Courses-main/android/app/.cxx/RelWithDebInfo/345l2m6y/x86/CMakeFiles/edit_cache.dir
+C:/Users/Mohamed Youssef/Downloads/ZAD-Courses-main/ZAD-Courses-main/android/app/.cxx/RelWithDebInfo/345l2m6y/x86/CMakeFiles/rebuild_cache.dir

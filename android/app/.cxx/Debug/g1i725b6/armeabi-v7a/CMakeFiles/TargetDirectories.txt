@@ -1,0 +1,2 @@
+C:/Users/Mohamed Youssef/Downloads/ZAD-Courses-main/ZAD-Courses-main/android/app/.cxx/Debug/g1i725b6/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/Mohamed Youssef/Downloads/ZAD-Courses-main/ZAD-Courses-main/android/app/.cxx/Debug/g1i725b6/armeabi-v7a/CMakeFiles/rebuild_cache.dir

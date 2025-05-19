@@ -1,0 +1,2 @@
+F:/Project-Programming/mido/ZAD/ZAD-Courses-main/android/app/.cxx/Debug/a48u6017/x86_64/CMakeFiles/edit_cache.dir
+F:/Project-Programming/mido/ZAD/ZAD-Courses-main/android/app/.cxx/Debug/a48u6017/x86_64/CMakeFiles/rebuild_cache.dir

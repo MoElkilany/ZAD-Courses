@@ -1,0 +1,2 @@
+F:/Project-Programming/mido/ZAD/ZAD-Courses-main/android/app/.cxx/RelWithDebInfo/a5o6k2vm/armeabi-v7a/CMakeFiles/edit_cache.dir
+F:/Project-Programming/mido/ZAD/ZAD-Courses-main/android/app/.cxx/RelWithDebInfo/a5o6k2vm/armeabi-v7a/CMakeFiles/rebuild_cache.dir

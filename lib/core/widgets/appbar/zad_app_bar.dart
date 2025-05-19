@@ -58,7 +58,14 @@ class ZADAppBar extends ConsumerWidget {
           data: (data) {
             final notifications = data.fold((l) => <ZadNotification>[], (r) => r);
 
-            final unreadNum = notifications.map((e) => e.status == 'read' ? 0 : 1).reduce((value, element) => value + element);
+
+          int unreadNum = 0;
+            if (notifications.isNotEmpty) {
+              unreadNum = notifications
+                  .map((e) => e.status == 'read' ? 0 : 1)
+                  .reduce((value, element) => value + element);
+            }
+
             final hasNotifications = unreadNum > 0;
 
             return IconButton(
