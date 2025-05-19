@@ -51,6 +51,7 @@ class ZADAppBar extends ConsumerWidget {
         //       badgeColor: Colors.blue,
         //     ),
         //     child: const Icon(Feather.shopping_cart),
+        
         //   ),
         //   iconSize: 20,
         // ),
