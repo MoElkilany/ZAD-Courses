@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:zad_test/core/apple_bug/apple_bug_api.dart';
 
 import '../../../../../core/config/app_progress_indicators.dart';
 import '../../../../../core/config/colors.dart';
@@ -30,9 +31,7 @@ class DashboardBodyTeacher extends ConsumerWidget {
           if (dashboardData == null) {
             return SingleChildScrollView(
               physics: const AlwaysScrollableScrollPhysics(),
-              child: ErrorPage(
-                errorMessage: 'errors.serverError'.tr(),
-              ),
+              child: ErrorPage(errorMessage: 'errors.serverError'.tr()),
             );
           }
 
@@ -40,17 +39,15 @@ class DashboardBodyTeacher extends ConsumerWidget {
             physics: const AlwaysScrollableScrollPhysics(),
             child: Column(
               children: [
-                DashboardHeader(
-                  availableBalance: dashboardData.availableBalance,
-                  withdrawableBalance: dashboardData.withdrawableBalance,
-                  currency: dashboardData.currency,
-                ),
-                DashboardGraphTeacher(
-                  dashboardData: dashboardData,
-                ),
-                DashboardGrid(
-                  dashboardData: dashboardData,
-                ),
+                visibleMyCourse == 1
+                    ? DashboardHeader(
+                      availableBalance: dashboardData.availableBalance,
+                      withdrawableBalance: dashboardData.withdrawableBalance,
+                      currency: dashboardData.currency,
+                    )
+                    : SizedBox.shrink(),
+                DashboardGraphTeacher(dashboardData: dashboardData),
+                DashboardGrid(dashboardData: dashboardData),
               ],
             ),
           );
@@ -59,9 +56,7 @@ class DashboardBodyTeacher extends ConsumerWidget {
           return Text(error.toString());
         },
         loading: () {
-          return const Center(
-            child: appDefaultCircIndicator,
-          );
+          return const Center(child: appDefaultCircIndicator);
         },
       ),
     );

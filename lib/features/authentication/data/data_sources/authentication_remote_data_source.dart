@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:zad_test/core/apple_bug/apple_bug_api.dart';
 
 import '../../../../core/config/endpoints.dart';
 import '../../../../core/error/exceptions.dart';
@@ -26,7 +27,8 @@ abstract class AuthenticationRemoteDataSource {
   Future<VerificationResponse> verify(VerificationRequest verificationRequest);
 }
 
-class AuthenticationRemoteDataSourceImpl implements AuthenticationRemoteDataSource {
+class AuthenticationRemoteDataSourceImpl
+    implements AuthenticationRemoteDataSource {
   final Dio dio;
   final SettingsRepository settingsRepository;
   AuthenticationRemoteDataSourceImpl({
@@ -50,10 +52,7 @@ class AuthenticationRemoteDataSourceImpl implements AuthenticationRemoteDataSour
 
   @override
   Future<RefreshTokenResponse> refreshToken() async {
-    final res = await _handleRequest(
-      endpoint: Endpoints.refreshToken,
-      req: {},
-    );
+    final res = await _handleRequest(endpoint: Endpoints.refreshToken, req: {});
     return RefreshTokenResponseJsonModel.fromJson(res);
   }
 
@@ -64,11 +63,14 @@ class AuthenticationRemoteDataSourceImpl implements AuthenticationRemoteDataSour
       endpoint: Endpoints.register,
       req: v.toJson(),
     );
+
     return RegisterResponseJsonModel.fromJson(res);
   }
 
   @override
-  Future<VerificationResponse> verify(VerificationRequest verificationRequest) async {
+  Future<VerificationResponse> verify(
+    VerificationRequest verificationRequest,
+  ) async {
     final v = VerificationRequestJsonModel.of(verificationRequest);
     final res = await _handleRequest(
       endpoint: Endpoints.verify,
@@ -84,10 +86,7 @@ class AuthenticationRemoteDataSourceImpl implements AuthenticationRemoteDataSour
     late final Response res;
     final exception = ServerException(status: 500, message: 'Server Error');
     try {
-      res = await dio.post(
-        endpoint,
-        data: req,
-      );
+      res = await dio.post(endpoint, data: req);
     } catch (e) {
       throw exception;
     }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:go_router/go_router.dart';
+import 'package:zad_test/core/apple_bug/apple_bug_api.dart';
 
 import '../../../di/app_settings.dart';
 import '../../../di/initialisation.dart';
@@ -33,24 +34,26 @@ class _ZadDrawerItemsState extends ConsumerState<ZadDrawerItems> {
             context.go(AppPages.dashboard.toPath);
           },
         ).toTile(),
-        ZadDrawerItem(
-          title: 'drawer.courses'.tr(),
-          icon: FontAwesome.book,
-          children: [
-            ZadDrawerSubTile(
-              title: 'drawer.myCourses'.tr(),
-              onTap: () {
-                context.go(AppPages.purchases.toPath);
-              },
-            ),
-            ZadDrawerSubTile(
-              title: 'drawer.favorites'.tr(),
-              onTap: () {
-                context.go(AppPages.favorites.toPath);
-              },
-            ),
-          ],
-        ).toTile(),
+        visibleMyCourse == 1
+            ? ZadDrawerItem(
+              title: 'drawer.courses'.tr(),
+              icon: FontAwesome.book,
+              children: [
+                ZadDrawerSubTile(
+                  title: 'drawer.myCourses'.tr(),
+                  onTap: () {
+                    context.go(AppPages.purchases.toPath);
+                  },
+                ),
+                ZadDrawerSubTile(
+                  title: 'drawer.favorites'.tr(),
+                  onTap: () {
+                    context.go(AppPages.favorites.toPath);
+                  },
+                ),
+              ],
+            ).toTile()
+            : SizedBox.shrink(),
         if (userType != null && userType.role == UserType.parent) ...[
           ZadDrawerItem(
             title: 'drawer.progress'.tr(),
@@ -79,64 +82,68 @@ class _ZadDrawerItemsState extends ConsumerState<ZadDrawerItems> {
           ZadDrawerItem(
             title: 'drawer.quizzes'.tr(),
             icon: Icons.quiz_rounded,
-            children: (userType.role == UserType.student)
-                ? [
-                    ZadDrawerSubTile(
-                      title: 'drawer.myResults'.tr(),
-                      onTap: () {
-                        context.go(AppPages.quizResults.toPath);
-                      },
-                    ),
-                    ZadDrawerSubTile(
-                      title: 'drawer.notSubmitted'.tr(),
-                      onTap: () {
-                        context.go(AppPages.quizNotSubmitted.toPath);
-                      },
-                    ),
-                  ]
-                : [
-                    ZadDrawerSubTile(
-                      title: 'drawer.quizzesList'.tr(),
-                      onTap: () {
-                        context.go(AppPages.quizResults.toPath);
-                      },
-                    ),
-                  ],
+            children:
+                (userType.role == UserType.student)
+                    ? [
+                      ZadDrawerSubTile(
+                        title: 'drawer.myResults'.tr(),
+                        onTap: () {
+                          context.go(AppPages.quizResults.toPath);
+                        },
+                      ),
+                      ZadDrawerSubTile(
+                        title: 'drawer.notSubmitted'.tr(),
+                        onTap: () {
+                          context.go(AppPages.quizNotSubmitted.toPath);
+                        },
+                      ),
+                    ]
+                    : [
+                      ZadDrawerSubTile(
+                        title: 'drawer.quizzesList'.tr(),
+                        onTap: () {
+                          context.go(AppPages.quizResults.toPath);
+                        },
+                      ),
+                    ],
           ).toTile(),
         ZadDrawerItem(
           title: 'drawer.noticeboard'.tr(),
           icon: MaterialCommunityIcons.bulletin_board,
-          children: (userType != null && userType.role == UserType.teacher)
-              ? [
-                  ZadDrawerSubTile(
-                    title: 'drawer.postNotice'.tr(),
-                    onTap: () {
-                      context.go(AppPages.newNotice.toPath);
-                    },
-                  ),
-                  ZadDrawerSubTile(
-                    title: 'drawer.notices'.tr(),
-                    onTap: () {
-                      context.go(AppPages.noticeboard.toPath);
-                    },
-                  ),
-                ]
-              : [
-                  ZadDrawerSubTile(
-                    title: 'drawer.notices'.tr(),
-                    onTap: () {
-                      context.go(AppPages.noticeboard.toPath);
-                    },
-                  ),
-                ],
+          children:
+              (userType != null && userType.role == UserType.teacher)
+                  ? [
+                    ZadDrawerSubTile(
+                      title: 'drawer.postNotice'.tr(),
+                      onTap: () {
+                        context.go(AppPages.newNotice.toPath);
+                      },
+                    ),
+                    ZadDrawerSubTile(
+                      title: 'drawer.notices'.tr(),
+                      onTap: () {
+                        context.go(AppPages.noticeboard.toPath);
+                      },
+                    ),
+                  ]
+                  : [
+                    ZadDrawerSubTile(
+                      title: 'drawer.notices'.tr(),
+                      onTap: () {
+                        context.go(AppPages.noticeboard.toPath);
+                      },
+                    ),
+                  ],
         ).toTile(),
-        ZadDrawerItem(
-          title: 'drawer.financial'.tr(),
-          icon: Icons.attach_money_rounded,
-          onTap: () {
-            context.go(AppPages.financial.toPath);
-          },
-        ).toTile(),
+        visibleMyCourse == 1
+            ? ZadDrawerItem(
+              title: 'drawer.financial'.tr(),
+              icon: Icons.attach_money_rounded,
+              onTap: () {
+                context.go(AppPages.financial.toPath);
+              },
+            ).toTile()
+            : SizedBox.shrink(),
         ZadDrawerItem(
           title: 'drawer.support'.tr(),
           icon: FontAwesome.support,
@@ -166,12 +173,16 @@ class _ZadDrawerItemsState extends ConsumerState<ZadDrawerItems> {
           icon: Icons.logout,
           onTap: () async {
             await ref.read(AppSettingsDI.clearAuthInfo).call(NoParameters());
-            await ref.read(AppSettingsDI.clearUserInfo).call(NoParameters()).then((value) {
-              ref.read(AppServices.initializationListnable).authenticated = false;
-              if (!mounted) return;
-              // ignore: use_build_context_synchronously
-              context.go(AppPages.login.toPath);
-            });
+            await ref
+                .read(AppSettingsDI.clearUserInfo)
+                .call(NoParameters())
+                .then((value) {
+                  ref.read(AppServices.initializationListnable).authenticated =
+                      false;
+                  if (!mounted) return;
+                  // ignore: use_build_context_synchronously
+                  context.go(AppPages.login.toPath);
+                });
           },
         ).toTile(),
       ],

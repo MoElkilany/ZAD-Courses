@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:zad_test/features/authentication/data/data_sources/authentication_local_data_source.dart';
 import '../../../../core/widgets/appbar/zad_app_bar.dart';
 import '../../../../core/widgets/drawer/zad_drawer.dart';
 import '../widgets/dashboard_body.dart';
@@ -12,12 +15,7 @@ class DashboardPage extends StatelessWidget {
       drawer: ZADDrawer(),
       body: CustomScrollView(
         physics: NeverScrollableScrollPhysics(),
-        slivers: [
-          ZADAppBar(),
-          SliverFillRemaining(
-            child: DashboardBody(),
-          ),
-        ],
+        slivers: [ZADAppBar(), SliverFillRemaining(child: DashboardBody())],
       ),
     );
   }

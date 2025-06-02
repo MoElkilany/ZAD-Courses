@@ -58,9 +58,7 @@ class AuthenticationReposirotyImpl implements AuthenticationReposiroty {
         );
       }
     } else {
-      return const Left(
-        ServerFailure(status: 404, message: 'offline'),
-      );
+      return const Left(ServerFailure(status: 404, message: 'offline'));
     }
   }
 
@@ -70,7 +68,9 @@ class AuthenticationReposirotyImpl implements AuthenticationReposiroty {
   ) async {
     if (networkInfo.isConnected) {
       try {
-        final response = await authenticationRemoteDataSource.register(registerRequest);
+        final response = await authenticationRemoteDataSource.register(
+          registerRequest,
+        );
         return Right(response);
       } catch (e) {
         return const Left(
@@ -78,9 +78,7 @@ class AuthenticationReposirotyImpl implements AuthenticationReposiroty {
         );
       }
     } else {
-      return const Left(
-        ServerFailure(status: 404, message: 'offline'),
-      );
+      return const Left(ServerFailure(status: 404, message: 'offline'));
     }
   }
 
@@ -90,7 +88,9 @@ class AuthenticationReposirotyImpl implements AuthenticationReposiroty {
   ) async {
     if (networkInfo.isConnected) {
       try {
-        final response = await authenticationRemoteDataSource.verify(verificationRequest);
+        final response = await authenticationRemoteDataSource.verify(
+          verificationRequest,
+        );
         return Right(response);
       } catch (e) {
         return const Left(
@@ -98,9 +98,7 @@ class AuthenticationReposirotyImpl implements AuthenticationReposiroty {
         );
       }
     } else {
-      return const Left(
-        ServerFailure(status: 404, message: 'offline'),
-      );
+      return const Left(ServerFailure(status: 404, message: 'offline'));
     }
   }
 
@@ -115,21 +113,17 @@ class AuthenticationReposirotyImpl implements AuthenticationReposiroty {
       await authenticationLocalDataSource.logout();
       return const Right(null);
     } else {
-      return const Left(
-        CacheFailure(
-          status: 401,
-          message: 'not logged in',
-        ),
-      );
+      return const Left(CacheFailure(status: 401, message: 'not logged in'));
     }
   }
-  
+
   @override
   Future<Either<Failure, RefreshTokenResponse>> refreshToken() async {
     if (networkInfo.isConnected) {
       try {
         final token = await authenticationRemoteDataSource.refreshToken();
-        final user = authenticationLocalDataSource.login() as LoginResponseHiveModel;
+        final user =
+            authenticationLocalDataSource.login() as LoginResponseHiveModel;
         user.token = token.token;
         user.save();
         return Right(token);
@@ -139,9 +133,7 @@ class AuthenticationReposirotyImpl implements AuthenticationReposiroty {
         );
       }
     } else {
-      return const Left(
-        ServerFailure(status: 404, message: 'offline'),
-      );
+      return const Left(ServerFailure(status: 404, message: 'offline'));
     }
   }
 }

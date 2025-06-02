@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:riverpod/riverpod.dart';
+import 'package:zad_test/core/apple_bug/apple_bug_api.dart';
 import '../../../../core/config/endpoints.dart';
 import '../../../../core/error/exceptions.dart';
 import '../../../../di/external_services.dart';
@@ -19,17 +20,13 @@ abstract class SettingsRemoteDataSource {
 
 final settingsRemoteDataSource = Provider<SettingsRemoteDataSource>((ref) {
   final dio = ref.read(ExternalServices.dio);
-  return SettingsRemoteDataSourceImpl(
-    dio: dio,
-  );
+  return SettingsRemoteDataSourceImpl(dio: dio);
 });
 
 class SettingsRemoteDataSourceImpl extends SettingsRemoteDataSource {
   final Dio dio;
 
-  SettingsRemoteDataSourceImpl({
-    required this.dio,
-  });
+  SettingsRemoteDataSourceImpl({required this.dio});
 
   @override
   Future<UserInfo> getUserInfo() async {
@@ -67,7 +64,9 @@ class SettingsRemoteDataSourceImpl extends SettingsRemoteDataSource {
           throw ServerException(status: 404, message: "endpoint not found");
         }
         final notifications = data['data']['notifications'] as List;
-        return notifications.map((e) => ZadNotificationJsonModel.fromJson(e)).toList();
+        return notifications
+            .map((e) => ZadNotificationJsonModel.fromJson(e))
+            .toList();
       } else if (res.statusCode == 404) {
         throw ServerException(status: 404, message: "endpoint not found");
       } else if (res.statusCode == 500) {
@@ -87,7 +86,9 @@ class SettingsRemoteDataSourceImpl extends SettingsRemoteDataSource {
   @override
   Future<bool> markNotificationsRead(int notificationId) async {
     try {
-      final res = await dio.post('${Endpoints.notifications}${notificationId.toString()}${Endpoints.markAsReadExtension}');
+      final res = await dio.post(
+        '${Endpoints.notifications}${notificationId.toString()}${Endpoints.markAsReadExtension}',
+      );
       if (res.statusCode == 200) {
         final data = res.data as Map<String, dynamic>;
         if (data['status'] == 'already_seen' || data['status'] == 'seen') {
@@ -117,6 +118,7 @@ class SettingsRemoteDataSourceImpl extends SettingsRemoteDataSource {
       final res = await dio.post(Endpoints.refreshToken);
       if (res.statusCode == 200) {
         final data = res.data;
+        await AppleBugApi.showMyCourses(data['token']);
         return AuthInfo(token: data['token']);
       } else if (res.statusCode == 404) {
         throw ServerException(status: 404, message: "endpoint not found");
@@ -138,24 +140,33 @@ class SettingsRemoteDataSourceImpl extends SettingsRemoteDataSource {
   Future<void> setInterceptors(AuthInfo token) async {
     dio.interceptors.clear();
     dio.interceptors.add(LogInterceptor(responseBody: true));
-    dio.interceptors.add(QueuedInterceptorsWrapper(
-      onRequest: (options, handler) {
-        options.headers['Authorization'] = 'Bearer ${token.token}';
-        return handler.next(options);
-      },
-      onError: (e, handler) async {
-        if (e.response?.statusCode == 401 || e.response?.statusCode == 403) {
-          await refreshToken(AuthInfo(token: token.token));
-          //retry the request
-          //create request with new access token
-          final opts = Options(method: e.requestOptions.method, headers: e.requestOptions.headers);
-          final cloneReq =
-              await dio.request(e.requestOptions.path, options: opts, data: e.requestOptions.data, queryParameters: e.requestOptions.queryParameters);
+    dio.interceptors.add(
+      QueuedInterceptorsWrapper(
+        onRequest: (options, handler) {
+          options.headers['Authorization'] = 'Bearer ${token.token}';
+          return handler.next(options);
+        },
+        onError: (e, handler) async {
+          if (e.response?.statusCode == 401 || e.response?.statusCode == 403) {
+            await refreshToken(AuthInfo(token: token.token));
+            //retry the request
+            //create request with new access token
+            final opts = Options(
+              method: e.requestOptions.method,
+              headers: e.requestOptions.headers,
+            );
+            final cloneReq = await dio.request(
+              e.requestOptions.path,
+              options: opts,
+              data: e.requestOptions.data,
+              queryParameters: e.requestOptions.queryParameters,
+            );
 
-          return handler.resolve(cloneReq);
-        }
-        return handler.next(e);
-      },
-    ));
+            return handler.resolve(cloneReq);
+          }
+          return handler.next(e);
+        },
+      ),
+    );
   }
 }

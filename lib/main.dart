@@ -8,6 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:window_manager/window_manager.dart';
+import 'package:zad_test/core/apple_bug/apple_bug_api.dart';
 
 import 'core/config/app_size.dart';
 import 'di/app_settings.dart';
@@ -50,7 +51,8 @@ void main(List<String> args) async {
     }
   }
 
-  String storageLocation = '${(await getApplicationSupportDirectory()).path}-data';
+  String storageLocation =
+      '${(await getApplicationSupportDirectory()).path}-data';
   Hive.init(storageLocation);
 
   if (isDesktop) {
