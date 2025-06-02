@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:async_button/async_button.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:file_picker/file_picker.dart';
@@ -25,19 +27,18 @@ class NewTicketBody extends ConsumerStatefulWidget {
 }
 
 class _NewTicketBodyState extends ConsumerState<NewTicketBody> {
-  final AsyncBtnStatesController asyncBtnStatesController = AsyncBtnStatesController();
+  final AsyncBtnStatesController asyncBtnStatesController =
+      AsyncBtnStatesController();
   @override
   Widget build(BuildContext context) {
     final newTicketController = ref.watch(newTicketControllerProvider.notifier);
-    final getNewTicketOptions = ref.watch(
-      getNewTicketOptionsProvider,
-    );
+    final getNewTicketOptions = ref.watch(getNewTicketOptionsProvider);
     late NewTicketOptions ticketOptions;
 
     return getNewTicketOptions.when(
       data: (data) {
         final res = data.fold((l) => null, (r) => r);
-        // log(res.toString());
+        log(res.toString());
         if (res == null) {
           return Center(
             child: SingleChildScrollView(
@@ -107,69 +108,88 @@ class _NewTicketBodyState extends ConsumerState<NewTicketBody> {
                   appBoxH8,
                   const Divider(),
                   appBoxH8,
-                  newTicketController.ticketType == TicketType.academic && ticketOptions.courses.isNotEmpty
+                  newTicketController.ticketType == TicketType.academic &&
+                          ticketOptions.courses.isNotEmpty
                       ? Column(
-                          children: [
-                            DropdownButtonFormField<int>(
-                              decoration: InputDecoration(
-                                labelText: 'support.selectCourse'.tr(),
-                              ),
-                              value: newTicketController.course,
-                              //map courses from list of tuples to dropdown items
-                              items: ticketOptions.courses.map((e) {
-                                return DropdownMenuItem(
-                                  value: e.value1,
-                                  child: Text(e.value2),
-                                );
-                              }).toList(),
-                              onChanged: (value) {
-                                if (value != null) {
-                                  newTicketController.setTicketCourse(value);
-                                  setState(() {});
-                                }
-                              },
+                        children: [
+                          DropdownButtonFormField<int>(
+                            decoration: InputDecoration(
+                              labelText: 'support.selectCourse'.tr(),
                             ),
-                            appBoxH16,
-                            DropdownButtonFormField<int>(
-                              decoration: InputDecoration(
-                                labelText: 'support.selectRole'.tr(),
-                              ),
-                              value: newTicketController.role,
-                              //map roles from list of tuples to dropdown items
-                              items: ticketOptions.roles.map((e) {
-                                return DropdownMenuItem(
-                                  value: e.value1,
-                                  child: Text(e.value2),
+                            value: newTicketController.course,
+
+                            selectedItemBuilder: (context) {
+                              return ticketOptions.courses.map((e) {
+                                return SizedBox(
+                                  width: MediaQuery.of(context).size.width - 60,
+                                  child: Text(
+                                    e.value2,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
                                 );
-                              }).toList(),
-                              onChanged: (value) {
-                                if (value != null) {
-                                  newTicketController.setTicketRole(value);
-                                  setState(() {});
-                                }
-                              },
-                            ),
-                          ],
-                        )
-                      : DropdownButtonFormField<int>(
-                          decoration: InputDecoration(
-                            labelText: 'support.selectDepartment'.tr(),
+                              }).toList();
+                            },
+                            //map courses from list of tuples to dropdown items
+                            items:
+                                ticketOptions.courses.map((e) {
+                                  return DropdownMenuItem(
+                                    value: e.value1,
+                                    child: Text(
+                                      e.value2,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  );
+                                }).toList(),
+                            onChanged: (value) {
+                              if (value != null) {
+                                newTicketController.setTicketCourse(value);
+                                setState(() {});
+                              }
+                            },
                           ),
-                          value: newTicketController.department,
-                          //map departments from list of tuples to dropdown items
-                          items: ticketOptions.departments.map((e) {
-                            return DropdownMenuItem(
-                              value: e.value1,
-                              child: Text(e.value2),
-                            );
-                          }).toList(),
-                          onChanged: (value) {
-                            if (value != null) {
-                              newTicketController.setTicketDepartment(value);
-                              setState(() {});
-                            }
-                          },
+                          appBoxH16,
+                          DropdownButtonFormField<int>(
+                            decoration: InputDecoration(
+                              labelText: 'support.selectRole'.tr(),
+                            ),
+                            value: newTicketController.role,
+                            //map roles from list of tuples to dropdown items
+                            items:
+                                ticketOptions.roles.map((e) {
+                                  return DropdownMenuItem(
+                                    value: e.value1,
+                                    child: Text(e.value2),
+                                  );
+                                }).toList(),
+                            onChanged: (value) {
+                              if (value != null) {
+                                newTicketController.setTicketRole(value);
+                                setState(() {});
+                              }
+                            },
+                          ),
+                        ],
+                      )
+                      : DropdownButtonFormField<int>(
+                        decoration: InputDecoration(
+                          labelText: 'support.selectDepartment'.tr(),
                         ),
+                        value: newTicketController.department,
+                        //map departments from list of tuples to dropdown items
+                        items:
+                            ticketOptions.departments.map((e) {
+                              return DropdownMenuItem(
+                                value: e.value1,
+                                child: Text(e.value2),
+                              );
+                            }).toList(),
+                        onChanged: (value) {
+                          if (value != null) {
+                            newTicketController.setTicketDepartment(value);
+                            setState(() {});
+                          }
+                        },
+                      ),
                   appBoxH8,
                   const Divider(),
                   appBoxH8,
@@ -194,44 +214,46 @@ class _NewTicketBodyState extends ConsumerState<NewTicketBody> {
                   //attach a file
                   newTicketController.attachments.isEmpty
                       ? InkWell(
-                          onTap: () async {
-                            await pickFiles(newTicketController);
-                          },
-                          child: Padding(
-                            padding: appPaddingSymV8,
-                            child: Row(
-                              children: [
-                                const Icon(Icons.attach_file),
-                                appBoxW8,
-                                Text('support.attachFile'.tr()),
-                              ],
-                            ),
-                          ),
-                        )
-                      : InkWell(
-                          onTap: () async {
-                            await pickFiles(newTicketController);
-                          },
-                          child: Padding(
-                            padding: appPaddingSymV8,
-                            child: Row(
-                              children: [
-                                const Icon(Icons.attach_file),
-                                appBoxW8,
-                                //show number of attachments selected
-                                Text('${newTicketController.attachments.length} ${'support.attachments'.tr()}'),
-                                const Spacer(),
-                                IconButton(
-                                  onPressed: () {
-                                    newTicketController.resetTicketAttachments();
-                                    setState(() {});
-                                  },
-                                  icon: const Icon(Icons.close),
-                                ),
-                              ],
-                            ),
+                        onTap: () async {
+                          await pickFiles(newTicketController);
+                        },
+                        child: Padding(
+                          padding: appPaddingSymV8,
+                          child: Row(
+                            children: [
+                              const Icon(Icons.attach_file),
+                              appBoxW8,
+                              Text('support.attachFile'.tr()),
+                            ],
                           ),
                         ),
+                      )
+                      : InkWell(
+                        onTap: () async {
+                          await pickFiles(newTicketController);
+                        },
+                        child: Padding(
+                          padding: appPaddingSymV8,
+                          child: Row(
+                            children: [
+                              const Icon(Icons.attach_file),
+                              appBoxW8,
+                              //show number of attachments selected
+                              Text(
+                                '${newTicketController.attachments.length} ${'support.attachments'.tr()}',
+                              ),
+                              const Spacer(),
+                              IconButton(
+                                onPressed: () {
+                                  newTicketController.resetTicketAttachments();
+                                  setState(() {});
+                                },
+                                icon: const Icon(Icons.close),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
 
                   appBoxH20,
                   //submit button
@@ -245,17 +267,29 @@ class _NewTicketBodyState extends ConsumerState<NewTicketBody> {
                         ),
                         onPressed: () async {
                           //validate form
-                          if (!newTicketController.formKey.currentState!.validate()) {
+                          if (!newTicketController.formKey.currentState!
+                              .validate()) {
                             return;
                           }
-                          asyncBtnStatesController.update(AsyncBtnState.loading);
+                          asyncBtnStatesController.update(
+                            AsyncBtnState.loading,
+                          );
 
                           final submit = ref.watch(SupportDI.submitNewTicket);
-                          final value = await submit(newTicketController.getTicket());
-                          final wasSuccessful = value.fold((l) => false, (r) => r);
+                          final value = await submit(
+                            newTicketController.getTicket(),
+                          );
+                          final wasSuccessful = value.fold(
+                            (l) => false,
+                            (r) => r,
+                          );
                           if (wasSuccessful) {
-                            asyncBtnStatesController.update(AsyncBtnState.success);
-                            await Future.delayed(const Duration(seconds: 1)).then((value) {
+                            asyncBtnStatesController.update(
+                              AsyncBtnState.success,
+                            );
+                            await Future.delayed(
+                              const Duration(seconds: 1),
+                            ).then((value) {
                               if (!mounted) return;
                               // ignore: use_build_context_synchronously
                               context.go(AppPages.dashboard.toPath);
@@ -268,11 +302,12 @@ class _NewTicketBodyState extends ConsumerState<NewTicketBody> {
                             );
                           }
                         },
-                        styleBuilder: (data) => AsyncBtnStateStyle(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: kSecondary,
-                          ),
-                        ),
+                        styleBuilder:
+                            (data) => AsyncBtnStateStyle(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: kSecondary,
+                              ),
+                            ),
                         child: Text(
                           'support.submit'.tr(),
                           style: const TextStyle(
@@ -287,10 +322,7 @@ class _NewTicketBodyState extends ConsumerState<NewTicketBody> {
                         },
                         successStyleBuilder: (data) {
                           return const AsyncBtnStateStyle(
-                            widget: Icon(
-                              Icons.check,
-                              color: Colors.white,
-                            ),
+                            widget: Icon(Icons.check, color: Colors.white),
                           );
                         },
                       ),
@@ -306,16 +338,12 @@ class _NewTicketBodyState extends ConsumerState<NewTicketBody> {
         return Center(
           child: SingleChildScrollView(
             physics: const AlwaysScrollableScrollPhysics(),
-            child: ErrorPage(
-              errorMessage: 'errors.serverError'.tr(),
-            ),
+            child: ErrorPage(errorMessage: 'errors.serverError'.tr()),
           ),
         );
       },
       loading: () {
-        return const Center(
-          child: appDefaultCircIndicator,
-        );
+        return const Center(child: appDefaultCircIndicator);
       },
     );
   }
@@ -327,13 +355,16 @@ class _NewTicketBodyState extends ConsumerState<NewTicketBody> {
 
     //pick files from device. [allowMultiple] is set to false to only allow one file
     //* Change to true to allow multiple files, NO NEED TO CHANGE ANYTHING ELSE
-    FilePickerResult? result = await FilePicker.platform.pickFiles(allowMultiple: false);
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+      allowMultiple: false,
+    );
 
     //check if files were picked and set them to the controller
     if (result != null) {
-      List<String?> files = result.paths.map((path) {
-        return path;
-      }).toList();
+      List<String?> files =
+          result.paths.map((path) {
+            return path;
+          }).toList();
 
       if (files.isNotEmpty) {
         //remove nulls

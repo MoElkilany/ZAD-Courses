@@ -12,9 +12,7 @@ import 'new_ticket_state.dart';
 part 'new_ticket_provider.g.dart';
 
 @riverpod
-Future<Either<Failure, NewTicketOptions>> getNewTicketOptions(
-  Ref ref,
-) async {
+Future<Either<Failure, NewTicketOptions>> getNewTicketOptions(Ref ref) async {
   final getNewTicketOptions = ref.read(SupportDI.getNewTicketOptions);
   final res = await getNewTicketOptions(NoParameters());
   final ticketOptions = res.fold((l) => null, (r) => r);
@@ -22,11 +20,19 @@ Future<Either<Failure, NewTicketOptions>> getNewTicketOptions(
     final newTicketController = ref.read(newTicketControllerProvider.notifier);
     newTicketController.resetTicket();
     //set courses
-    newTicketController.setTicketCourse(ticketOptions.courses[0].value1);
+    if (ticketOptions.courses.isNotEmpty) {
+      newTicketController.setTicketCourse(ticketOptions.courses[0].value1);
+    }
     //set roles
-    newTicketController.setTicketRole(ticketOptions.roles[0].value1);
+    if (ticketOptions.roles.isNotEmpty) {
+      newTicketController.setTicketRole(ticketOptions.roles[0].value1);
+    }
     //set departments
-    newTicketController.setTicketDepartment(ticketOptions.departments[0].value1);
+    if (ticketOptions.departments.isNotEmpty) {
+      newTicketController.setTicketDepartment(
+        ticketOptions.departments[0].value1,
+      );
+    }
   }
 
   return res;
