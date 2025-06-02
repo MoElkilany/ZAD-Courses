@@ -34,7 +34,10 @@ class _PurchasesBodyState extends ConsumerState<PurchasesBody> {
         data: (data) {
           final purchasedCourses = ref.watch(courseListProvider);
           final isFailiure = data.fold((l) => true, (r) => false);
-          final msg = data.fold((l) => l.message, (r) => 'errors.serverError'.tr());
+          final msg = data.fold(
+            (l) => l.message,
+            (r) => 'errors.serverError'.tr(),
+          );
           return RefreshIndicator(
             onRefresh: () async {
               ref.invalidate(getPurchasedCoursesProvider);
@@ -43,108 +46,124 @@ class _PurchasesBodyState extends ConsumerState<PurchasesBody> {
             backgroundColor: kSecondary,
             child: SingleChildScrollView(
               physics: const AlwaysScrollableScrollPhysics(),
-              child: isFailiure
-                  ? SizedBox(
-                      height: isLandscape ? MediaQuery.of(context).size.height * 0.65 : null,
-                      child: Center(
-                        child: ErrorPage(
-                          errorMessage: msg,
-                          showRefresh: true,
-                          onDesktopRefresh: () {
-                            ref.invalidate(getPurchasedCoursesProvider);
-                          },
-                        ),
-                      ),
-                    )
-                  : purchasedCourses.isEmpty
+              child:
+                  isFailiure
                       ? SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.85,
-                          child: Center(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  ref.read(AppParentStates.appUserInfo)!.isTeacher() ? 'courses.noCourses'.tr() : 'courses.noPurchases'.tr(),
-                                  style: const TextStyle(
-                                    fontSize: appFontSizeLarge,
-                                    color: kDark,
-                                  ),
-                                ),
-                                TextButton(
-                                    onPressed: () {
-                                      ref.invalidate(getPurchasedCoursesProvider);
-                                    },
-                                    child: Text(
-                                      'courses.refresh'.tr(),
-                                      style: const TextStyle(
-                                        fontSize: appFontSizeMedium,
-                                        color: kGray,
-                                      ),
-                                    )),
-                              ],
-                            ),
+                        height:
+                            isLandscape
+                                ? MediaQuery.of(context).size.height * 0.65
+                                : null,
+                        child: Center(
+                          child: ErrorPage(
+                            errorMessage: msg,
+                            showRefresh: true,
+                            onDesktopRefresh: () {
+                              ref.invalidate(getPurchasedCoursesProvider);
+                            },
                           ),
-                        )
-                      : Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            appSizeBoxH01,
-                            Padding(
-                              padding: appPaddingDirecS8,
-                              child: AutoSizeText(
-                                ref.read(AppParentStates.appUserInfo)!.isTeacher() ? 'courses.myCourses'.tr() : 'courses.purchases'.tr(),
+                        ),
+                      )
+                      : purchasedCourses.isEmpty
+                      ? SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.85,
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                ref
+                                        .read(AppParentStates.appUserInfo)!
+                                        .isTeacher()
+                                    ? 'courses.noCourses'.tr()
+                                    : 'courses.noPurchases'.tr(),
                                 style: const TextStyle(
-                                  fontSize: appFontSizeHuge,
-                                  fontWeight: FontWeight.bold,
+                                  fontSize: appFontSizeLarge,
+                                  color: kDark,
                                 ),
                               ),
+                              TextButton(
+                                onPressed: () {
+                                  ref.invalidate(getPurchasedCoursesProvider);
+                                },
+                                child: Text(
+                                  'courses.refresh'.tr(),
+                                  style: const TextStyle(
+                                    fontSize: appFontSizeMedium,
+                                    color: kGray,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                      : Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          appSizeBoxH01,
+                          Padding(
+                            padding: appPaddingDirecS8,
+                            child: AutoSizeText(
+                              ref.read(AppParentStates.appUserInfo)!.isTeacher()
+                                  ? 'courses.myCourses'.tr()
+                                  : 'courses.purchases'.tr(),
+                              style: const TextStyle(
+                                fontSize: appFontSizeHuge,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                            // appBoxH8,
+                          ),
 
-                            isLandscape
-                                ? GridView.builder(
-                                    shrinkWrap: true,
-                                    physics: const NeverScrollableScrollPhysics(),
-                                    itemCount: purchasedCourses.length,
-                                    gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                          // appBoxH8,
+                          isLandscape
+                              ? GridView.builder(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                itemCount: purchasedCourses.length,
+                                gridDelegate:
+                                    SliverGridDelegateWithMaxCrossAxisExtent(
                                       crossAxisSpacing: 0,
                                       mainAxisSpacing: 0,
-                                      maxCrossAxisExtent: MediaQuery.of(context).size.width / 2,
-                                      childAspectRatio: MediaQuery.of(context).size.height * 1.3 < MediaQuery.of(context).size.width ? 1.3 : 0.8,
+                                      maxCrossAxisExtent:
+                                          MediaQuery.of(context).size.width / 2,
+                                      childAspectRatio:
+                                          MediaQuery.of(context).size.height *
+                                                      1.3 <
+                                                  MediaQuery.of(
+                                                    context,
+                                                  ).size.width
+                                              ? 1.3
+                                              : 0.8,
                                     ),
-                                    itemBuilder: (context, index) {
-                                      return CourseCard(
-                                        course: purchasedCourses[index],
-                                        index: index,
-                                      );
-                                    },
-                                  )
-                                : ListView.builder(
-                                    shrinkWrap: true,
-                                    physics: const NeverScrollableScrollPhysics(),
-                                    itemCount: purchasedCourses.length,
-                                    itemBuilder: (context, index) {
-                                      return CourseCard(
-                                        course: purchasedCourses[index],
-                                        index: index,
-                                      );
-                                    },
-                                  ),
-                          ],
-                        ),
+                                itemBuilder: (context, index) {
+                                  return CourseCard(
+                                    course: purchasedCourses[index],
+                                    index: index,
+                                  );
+                                },
+                              )
+                              : ListView.builder(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                itemCount: purchasedCourses.length,
+                                itemBuilder: (context, index) {
+                                  return CourseCard(
+                                    course: purchasedCourses[index],
+                                    index: index,
+                                  );
+                                },
+                              ),
+                        ],
+                      ),
             ),
           );
         },
         error: (error, stackTrace) {
-          return Center(
-            child: Text(error.toString()),
-          );
+          return Center(child: Text(error.toString()));
         },
         loading: () {
-          return const Center(
-            child: appDefaultCircIndicator,
-          );
+          return const Center(child: appDefaultCircIndicator);
         },
       ),
     );

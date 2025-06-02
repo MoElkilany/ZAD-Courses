@@ -28,13 +28,19 @@ class PurchasedCourseModel extends PurchasedCourse {
       courseContents: null, //CourseModel.fromJson(json['courseContents']),
       //format date to string DateTime.parse(json['purchased_at'])
       //to the format dd/MM/yyyy
-      purchaseDate: json['purchased_at'] == null
-          ? null
-          : DateFormat('dd/MM/yyyy').format(
-              DateTime.parse(json['purchased_at']),
-            ),
+      purchaseDate:
+          json['purchased_at'] == null
+              ? null
+              : DateFormat(
+                'dd/MM/yyyy',
+              ).format(DateTime.parse(json['purchased_at'])),
       //'expire_on' is in seconds since epoch, convert to DateTime then to iso string
-      expireDate: json['expire_on'] == null ? null : DateTime.fromMillisecondsSinceEpoch(json['expire_on'] * 1000).toIso8601String(),
+      expireDate:
+          json['expire_on'] == null
+              ? null
+              : DateTime.fromMillisecondsSinceEpoch(
+                json['expire_on'] * 1000,
+              ).toIso8601String(),
       classType: getClassTypeFromJson(json['type']),
       yearType: json['category'],
       schoolType: json['parent_category'],
@@ -42,15 +48,19 @@ class PurchasedCourseModel extends PurchasedCourse {
       classTitle: json['title'],
       //use the created_at date and use that year to create a string of the format
       // thatyear/thatyear+1
-      classYear: '${DateTime.parse(json['created_at']).year}/'
+      classYear:
+          '${DateTime.parse(json['created_at']).year}/'
           '${DateTime.parse(json['created_at']).year + 1}',
       //if rating is int, convert to double
       rating: double.tryParse('${json['rate']}') ?? 0,
       instructorName: json['teacher']['full_name'],
       //'start_date' is in seconds since epoch, convert to DateTime
-      startDate: DateTime.fromMillisecondsSinceEpoch(json['start_date'] * 1000),
+      startDate: DateTime.fromMillisecondsSinceEpoch(
+        (json['start_date'] ?? 0) * 1000,
+      ),
       //duration is in Minutes, convert to format HH.MM Hrs
-      durationPerSession: '${Duration(minutes: json['duration']).toString().split(':').sublist(0, 2).join('.')} ${'courses.durationHrs'.tr()}',
+      durationPerSession:
+          '${Duration(minutes: json['duration'] ?? 0).toString().split(':').sublist(0, 2).join('.')} ${'courses.durationHrs'.tr()}',
       imageUrl: json['image'],
     );
   }
@@ -80,10 +90,10 @@ String getClassTypeFromJson(String json) {
   return json == 'course'
       ? 'courses.liveClass'.tr()
       : json == 'video_course'
-          ? 'courses.videoCourse'.tr()
-          : json == 'meeting'
-              ? 'courses.meeting'.tr()
-              : json == 'text_lesson'
-                  ? 'courses.textLesson'.tr()
-                  : 'courses.liveClass'.tr();
+      ? 'courses.videoCourse'.tr()
+      : json == 'meeting'
+      ? 'courses.meeting'.tr()
+      : json == 'text_lesson'
+      ? 'courses.textLesson'.tr()
+      : 'courses.liveClass'.tr();
 }
